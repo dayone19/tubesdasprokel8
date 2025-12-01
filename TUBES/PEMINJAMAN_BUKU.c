@@ -17,11 +17,28 @@ typedef struct {
     char status[20];
 } Peminjaman;
 
+void printHeaderJudul() {
+    printf("=============================================================\n");
+    printf("|                                                           |\n");
+    printf("|                DAFTAR BUKU YANG BISA DIPINJAM            |\n");
+    printf("|                                                           |\n");
+    printf("=============================================================\n");
+}
+
+void printHeaderTabel() {
+    printf("---------------------------------------------------------------------------------------------------------------\n");
+    printf("| KODE  |      GENRE       |             JUDUL BUKU             |          PENULIS          |   STOK   |\n");
+    printf("---------------------------------------------------------------------------------------------------------------\n");
+}
+
+void printGenreLine(const char *genre) {
+    printf("---------------------------------------------------------------------------------------------------------------\n");
+    printf(">>> %s\n", genre);
+    printf("---------------------------------------------------------------------------------------------------------------\n");
+}
+
 int main() {
 
-    // ==========================================
-    //               DATA BUKU
-    // ==========================================
     Buku buku[] = {
         // ROMANCE
         {"R1", "ROMANCE", "Milea: Suara Dari Dilan", "Pidi Baiq", 10},
@@ -56,40 +73,47 @@ int main() {
     };
 
     int jumlahBuku = sizeof(buku) / sizeof(buku[0]);
-
-    // ==========================================
-    //             VARIABEL
-    // ==========================================
     Peminjaman pem;
     char kodeInput[10];
     int found = 0;
 
-    // ==========================================
-    //           INPUT NAMA PEMINJAM
-    // ==========================================
+    // ===============================
+    // INPUT NAMA
+    // ===============================
     printf("Masukkan nama peminjam: ");
     scanf(" %[^\n]", pem.nama);
 
-    // ==========================================
-    //            TAMPILKAN LIST BUKU
-    // ==========================================
-    printf("============================================\n");
-    printf("|                                          |\n");
-    printf("|        DAFTAR BUKU YANG BISA DIPINJAM    |\n");
-    printf("|                                          |\n");
-    printf("============================================\n");
+    // ===============================
+    // TAMPILKAN TABEL
+    // ===============================
+    printHeaderJudul();
+
+    char lastGenre[30] = "";
+
     for (int i = 0; i < jumlahBuku; i++) {
-        printf("%-3s | %-15s | %-35s (%-25s) | Stok: %d\n",
+
+        // Bila genre berubah -> cetak header genre baru
+        if (strcmp(lastGenre, buku[i].genre) != 0) {
+            printGenreLine(buku[i].genre);
+            printHeaderTabel();
+            strcpy(lastGenre, buku[i].genre);
+        }
+
+        // Cetak isi
+        printf("| %-5s | %-15s | %-30s | %-24s | %-7d |\n",
                buku[i].kode,
                buku[i].genre,
                buku[i].judul,
                buku[i].penulis,
-               buku[i].stok);
+               buku[i].stok
+        );
     }
 
-    // ==========================================
-    //                PILIH BUKU
-    // ==========================================
+    printf("---------------------------------------------------------------------------------------------------------------\n");
+
+    // ===============================
+    // PILIH BUKU
+    // ===============================
     printf("\nMASUKKAN KODE BUKU : ");
     scanf("%s", kodeInput);
 
@@ -98,45 +122,31 @@ int main() {
             found = 1;
 
             if (buku[i].stok == 0) {
-                printf("\nMAAF, STOK BUKU '%s' SEDANG HABIS.\n", buku[i].judul);
+                printf("\nMAAF, STOK BUKU '%s' HABIS.\n", buku[i].judul);
                 return 0;
             }
 
-            // ==========================================
-            //            INPUT LAMA PINJAM
-            // ==========================================
             printf("Masukkan lama peminjaman (hari): ");
             scanf("%d", &pem.lamaPinjam);
 
-            // ==========================================
-            //               SIMPAN DATA
-            // ==========================================
             strcpy(pem.judul, buku[i].judul);
             strcpy(pem.penulis, buku[i].penulis);
             strcpy(pem.status, "Dipinjam");
 
-            // ==========================================
-            //               UPDATE STOK
-            // ==========================================
             buku[i].stok--;
 
-            // ==========================================
-            //               CETAK BUKTI
-            // ==========================================
             printf("\n=== BUKTI PEMINJAMAN ===\n");
             printf("Nama Peminjam : %s\n", pem.nama);
             printf("Judul Buku    : %s\n", pem.judul);
             printf("Penulis       : %s\n", pem.penulis);
             printf("Lama Pinjam   : %d hari\n", pem.lamaPinjam);
             printf("Status        : %s\n", pem.status);
-
             break;
         }
     }
 
     if (!found) {
-        printf("\nKODE BUKU TIDAK DITEMUKAN !!!\n");
+        printf("\nKODE BUKU TIDAK DITEMUKAN!\n");
     }
 
     return 0;
-}
