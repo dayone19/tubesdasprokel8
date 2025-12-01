@@ -20,7 +20,7 @@ typedef struct {
 void printHeaderJudul() {
     printf("=============================================================\n");
     printf("|                                                           |\n");
-    printf("|                DAFTAR BUKU YANG BISA DIPINJAM            |\n");
+    printf("|                DAFTAR BUKU YANG BISA DIPINJAM              |\n");
     printf("|                                                           |\n");
     printf("=============================================================\n");
 }
