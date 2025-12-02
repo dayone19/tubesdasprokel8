@@ -1,10 +1,10 @@
 #ifndef PINJAM_H
 #define PINJAM_H
 
-
 #include <stdio.h>
 #include <string.h>
 #include "warna.h"
+
 typedef struct {
     char kode[10];
     char genre[30];
@@ -50,22 +50,17 @@ int pinjam_buku() {
         {"R3", "ROMANCE", "00.00", "Ameylia Falensia", 15},
         {"R4", "ROMANCE", "Ayat-Ayat Cinta", "Habiburrahman El Shirazy", 5},
         {"R5", "ROMANCE", "Septihan", "Popi Pertiwi", 2},
-
         {"H1", "HORROR", "Kuchisake - Apakah Aku Cantik?", "Hastong N.H.", 7},
         {"H2", "HORROR", "Danur", "Risa Saraswati", 20},
         {"H3", "HORROR", "KKN Desa Penari", "Simplemen", 9},
-
         {"C1", "COMEDY", "My Stupid Boss", "chaos@work", 2},
         {"C2", "COMEDY", "Sabtu Bersama Bapak", "Adhitya Mulya", 15},
         {"C3", "COMEDY", "Skripsip", "Chara Perdana", 5},
-
         {"S1", "SLICE OF LIFE", "Keajaiban Toko Kelontong Namia", "Keigo Higashino", 8},
         {"S2", "SLICE OF LIFE", "Keluarga Cemara", "Arswendo Atmowiloto", 5},
         {"S3", "SLICE OF LIFE", "Laskar Pelangi", "Andrea Hirata", 2},
-
         {"A1", "ACTION", "Tanah Para Bandit", "Tere Liye", 11},
         {"A2", "ACTION", "Negeri Para Bedebah", "Tere Liye", 15},
-
         {"T1", "THRILLER", "Holy Mother", "Akiyoshi Rikako", 8},
         {"T2", "THRILLER", "Pasien", "Naomi Midori", 6},
         {"T3", "THRILLER", "IT", "Stephen King", 7}
@@ -75,8 +70,6 @@ int pinjam_buku() {
     peminjaman pem;
     char kodeInput[10];
     int found = 0;
-
-    FILE *file;
 
     printf("%sNama Peminjam:%s ", pink, putih);
     scanf(" %[^\n]", pem.nama);
@@ -125,22 +118,31 @@ int pinjam_buku() {
 
             buku[i].stok--;
 
-            file = fopen("peminjaman.txt", "a");
-            if (file != NULL) {
+            // Simpan data "mesin-friendly"
+            FILE *fmesin = fopen("peminjaman.txt", "a");
+            if(fmesin != NULL){
+                fprintf(fmesin, "%s|%s|%s|%d|%s\n",
+                        pem.nama, pem.judul, pem.penulis,
+                        pem.lamaPinjam, pem.status);
+                fclose(fmesin);
+            }
 
-             fprintf(file, "=====================================================\n");
-             fprintf(file, "|                 BUKTI PEMINJAMAN                  |\n");
-             fprintf(file, "=====================================================\n");
-             fprintf(file, "| %-15s : %-31s |\n", "Nama Peminjam", pem.nama);
-             fprintf(file, "| %-15s : %-31s |\n", "Judul Buku", pem.judul);
-             fprintf(file, "| %-15s : %-31s |\n", "Penulis", pem.penulis);
-             fprintf(file, "| %-15s : %-31d |\n", "Lama Pinjam", pem.lamaPinjam);
-             fprintf(file, "| %-15s : %-31s |\n", "Status", pem.status);
-             fprintf(file, "=====================================================\n\n");
+            // Simpan bukti dekoratif
+            FILE *fbukti = fopen("bukti_peminjaman.txt", "a");
+            if(fbukti != NULL){
+                fprintf(fbukti, "=====================================================\n");
+                fprintf(fbukti, "|                 BUKTI PEMINJAMAN                  |\n");
+                fprintf(fbukti, "=====================================================\n");
+                fprintf(fbukti, "| %-15s : %-31s |\n", "Nama Peminjam", pem.nama);
+                fprintf(fbukti, "| %-15s : %-31s |\n", "Judul Buku", pem.judul);
+                fprintf(fbukti, "| %-15s : %-31s |\n", "Penulis", pem.penulis);
+                fprintf(fbukti, "| %-15s : %-31d |\n", "Lama Pinjam", pem.lamaPinjam);
+                fprintf(fbukti, "| %-15s : %-31s |\n", "Status", pem.status);
+                fprintf(fbukti, "=====================================================\n\n");
+                fclose(fbukti);
+            }
 
-             fclose(file); }
-
-
+            // Tampilkan di layar (format sama seperti file bukti)
             printf("%s=====================================================%s\n", hijau, putih);
             printf("%s|                 BUKTI PEMINJAMAN                  |%s\n", hijau, putih);
             printf("%s=====================================================%s\n", hijau, putih);
@@ -163,4 +165,5 @@ int pinjam_buku() {
 
     return 0;
 }
+
 #endif
