@@ -1,3 +1,6 @@
+#ifndef LAPORAN_H
+#define LAPORAN_H
+
 #include <stdio.h>
 #include "beli.h"
 #include "warna.h"
@@ -18,4 +21,4 @@ void catatan_pendapatan() {
 
 
 }
-
+#endif

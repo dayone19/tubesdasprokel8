@@ -1,5 +1,11 @@
 #include <stdio.h>
 #include "beli.h"
+#include "pinjam.h"
+#include "laporan.h"
+#include "login.h"
+#include "warna.h"
+#include "pembukaan.h"
+
 
 int pilih_pembeli;
 int huruf2;

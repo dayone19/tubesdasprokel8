@@ -1,3 +1,7 @@
+#ifndef PINJAM_H
+#define PINJAM_H
+
+
 #include <stdio.h>
 #include <string.h>
 #include "warna.h"
@@ -148,3 +152,4 @@ int pinjam_buku() {
 
     return 0;
 }
+#endif

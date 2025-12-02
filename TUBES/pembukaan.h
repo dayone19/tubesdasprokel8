@@ -1,3 +1,6 @@
+#ifndef PEMBUKAAN_H
+#define PEMBUKAAN_H
+
 #include <stdio.h>
 #include "warna.h"
 
@@ -68,4 +71,5 @@ void pilihan() {
       }
      
 }
+#endif
 
