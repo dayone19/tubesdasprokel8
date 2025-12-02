@@ -21,14 +21,12 @@ typedef struct {
     float subtotal;
 } ItemTransaksi;
 
-/* Data global */
 Buku daftarBuku[19];
 ItemTransaksi keranjang[50];
 int jumlahBuku = 19;
 int jumlahItem = 0;
 int nomorTransaksi = 1;
 
-/* Inisialisasi data buku */
 void initDataBuku() {
     Buku init[] = {
         {"R01","Milea: Suara Dari Dilan","Pidi Baiq","Romance",70000,10},
@@ -43,13 +41,13 @@ void initDataBuku() {
         {"C02","Sabtu Bersama Bapak","Adhitya Mulya","Comedy",120000,15},
         {"C03","Stripeto","chara.paradise","Comedy",45000,5},
         {"S01","Keajaiban Toko Kelontong Namia","Keigo Higashino","Slice of Life",130000,8},
-        {"S02","Keluarga Cemara","Arswando", "Slice of Life",85000,6},
+        {"S02","Keluarga Cemara","Arswando Atmowiloto","Slice of Life",85000,6},
         {"S03","Laskar Pelangi","Andrea Hirata","Slice of Life",100000,2},
         {"A01","Tanah Para Bandit","Tere Liye","Action",85000,11},
         {"A02","Negeri Para Bedebah","Tere Liye","Action",100000,15},
         {"T01","Holy Mother","Akiyoshi Rikako","Thriller",85000,8},
         {"T02","Pasien","Naomi Midori","Thriller",90000,4},
-        {"T03","IT","Stephen King","Thriller",110000,7},
+        {"T03","IT","Stephen King","Thriller",110000,7}
     };
     memcpy(daftarBuku, init, sizeof(init));
 }
@@ -84,12 +82,11 @@ int cariBuku(char kode[]) {
     return -1;
 }
 
-/* Pilih genre */
 int menuGenreBeli() {
     char list[][20] = {"","Romance","Horror","Comedy","Slice of Life","Action","Thriller"};
 
     printf("\n=== PILIH GENRE ===\n");
-    printf("1. Romance\n2. Horror\n3. Comedy\n4. Slice of Life\n5. Action\n6. Thriller\n0. Kembali\n");
+    printf("1. Romance\n2. Horror\n3. Comedy\n4. Slice of Life\n5. Action\n6. Thriller\n0. Selesai Belanja\n");
     printf("Pilih (0-6): ");
 
     int p;
@@ -99,7 +96,6 @@ int menuGenreBeli() {
     return p;
 }
 
-/* Proses beli */
 void prosesPembelian() {
     jumlahItem = 0;
 
@@ -157,7 +153,6 @@ void prosesPembelian() {
     }
 }
 
-/* Struk */
 void cetakStruk(char nama[], float total, float bayar) {
     float kembali = bayar - total;
 
@@ -182,6 +177,20 @@ void cetakStruk(char nama[], float total, float bayar) {
     printf("Bayar       : Rp%.0f\n", bayar);
     printf("Kembalian   : Rp%.0f\n", kembali);
     printf("========================================================================================\n");
+
+    FILE *f = fopen("pembelian.txt", "a");
+    if (f != NULL) {
+        for (int i = 0; i < jumlahItem; i++) {
+            fprintf(f, "%s|%s|%d|%.0f|%.0f\n",
+                    keranjang[i].kode_buku,
+                    keranjang[i].judul,
+                    keranjang[i].jumlah,
+                    keranjang[i].harga_satuan,
+                    keranjang[i].subtotal);
+        }
+        fclose(f);
+    }
+    
 }
 
 /* Transaksi */
