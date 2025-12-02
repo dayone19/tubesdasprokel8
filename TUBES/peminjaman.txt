@@ -3,3 +3,4 @@ moris|Pasien|Naomi Midori|3|KEMBALI
 r|Pasien|Naomi Midori|3|KEMBALI
 r|Pasien|Naomi Midori|3|KEMBALI
 roy|IT|Stephen King|2|KEMBALI
+cia|IT|Stephen King|1|KEMBALI

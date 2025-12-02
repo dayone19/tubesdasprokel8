@@ -25,46 +25,27 @@ int kembalikan_buku() {
     char namaInput[50];
     int found = 0;
 
-    int hariKembali;
-    int terlambat = 0;
-    int denda = 0;
-
     printf("%sMasukkan nama peminjam : %s", pink, putih);
     scanf(" %[^\n]", namaInput);
-
-    printf("%sMasukkan hari pengembalian : %s", pink, putih);
-    scanf("%d", &hariKembali);
 
     while(fscanf(f,"%[^|]|%[^|]|%[^|]|%d|%[^\n]\n",
                  data.nama, data.judul, data.penulis,
                  &data.lamaPinjam, data.status) != EOF)
     {
         if(strcmp(data.nama, namaInput) == 0 && strcmp(data.status, "DIPINJAM") == 0) {
-
             found = 1;
-
-            if (hariKembali > data.lamaPinjam) {
-                terlambat = hariKembali - data.lamaPinjam;
-                denda = terlambat * 1000;
-            }
 
             printf("%s=== DATA DITEMUKAN ===%s\n", hijau, putih);
             printf("Nama Peminjam : %s\n", data.nama);
             printf("Judul Buku    : %s\n", data.judul);
             printf("Penulis       : %s\n", data.penulis);
             printf("Lama Pinjam   : %d hari\n", data.lamaPinjam);
-            printf("Hari Kembali  : %d\n", hariKembali);
-            printf("Terlambat     : %d hari\n", terlambat);
-            printf("Denda         : Rp %d\n", denda);
 
-            fprintf(temp,"%s|%s|%s|%d|KEMBALI|%d|%d\n",
-                    data.nama, data.judul, data.penulis,
-                    data.lamaPinjam, terlambat, denda);
+            printf("\n%sBuku dikembalikan%s\n", hijau, putih);
+            fprintf(temp,"%s|%s|%s|%d|%s\n", data.nama, data.judul, data.penulis, data.lamaPinjam, "KEMBALI");
 
         } else {
-            fprintf(temp,"%s|%s|%s|%d|%s|0|0\n",
-                    data.nama, data.judul, data.penulis,
-                    data.lamaPinjam, data.status);
+            fprintf(temp,"%s|%s|%s|%d|%s\n", data.nama, data.judul, data.penulis, data.lamaPinjam, data.status);
         }
     }
 
@@ -74,7 +55,7 @@ int kembalikan_buku() {
     remove("peminjaman.txt");
     rename("temp.txt", "peminjaman.txt");
 
-    if(!found) {
+    if(!found){
         printf("%sNama peminjam tidak ditemukan atau buku sudah dikembalikan!%s\n", merah, putih);
     } else {
         printf("%sPengembalian berhasil.%s\n", hijau, putih);
