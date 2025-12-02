@@ -1,3 +1,7 @@
+#ifndef PINJAM_H
+#define PINJAM_H
+
+
 #include <stdio.h>
 #include <string.h>
 #include "warna.h"
@@ -123,6 +127,7 @@ int pinjam_buku() {
 
             file = fopen("peminjaman.txt", "a");
             if (file != NULL) {
+                fprintf(file, "\n=== BUKTI PEMINJAMAN ===\n");
                 fprintf(file, "NAMA   : %s\n", pem.nama);
                 fprintf(file, "JUDUL  : %s\n", pem.judul);
                 fprintf(file, "PENULIS: %s\n", pem.penulis);
@@ -148,3 +153,4 @@ int pinjam_buku() {
 
     return 0;
 }
+#endif

@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include "warna.h"
 
+#ifndef LOGIN_H
+#define LOGIN_H
+
 char Username[10];
 char Password[10];
 
@@ -47,3 +50,4 @@ void login_password() {
         printf("%s-------------------------------%s--------------------------------\n%s",cyan,pink,putih);
 
 }
+#endif

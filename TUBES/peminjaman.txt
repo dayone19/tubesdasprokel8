@@ -1,35 +1,11 @@
-
-[1;32m===================[1;35m STRUK PEMBELIAN [1;32m===================[0m
-[1;35mNama Pembeli :[0m cd "d:\yoan\visecode\Praktikum Daspro\TUBES\TUBES
-[1;35mKode Buku    :[0m \"
-[1;35mHarga Satuan :[0m 60000
-[1;35mJumlah Beli  :[0m 5
-[1;35mTotal Bayar  :[0m 300000
-[1;32m========================================================[0m
-
-[1;32m===================[1;35m STRUK PEMBELIAN [1;32m===================[0m
-[1;35mNama Pembeli :[0m deyoan salsabila
-
-[1;35mKode Buku    :[0m H01
-[1;35mHarga Satuan :[0m 60000
-[1;35mJumlah Beli  :[0m 3
-[1;35mTotal Bayar  :[0m 180000
-[1;32m========================================================[0m
-
-[1;32m===================[1;35m STRUK PEMBELIAN [1;32m===================[0m
-[1;35mNama Pembeli :[0m deyoan salsabila
-
-[1;35mKode Buku    :[0m t02
-[1;35mHarga Satuan :[0m 75000
-[1;35mJumlah Beli  :[0m 2
-[1;35mTotal Bayar  :[0m 150000
-[1;32m========================================================[0m
-
-[1;32m===================[1;35m STRUK PEMBELIAN [1;32m===================[0m
-[1;35mNama Pembeli :[0m deyoan salsabila
-
-[1;35mKode Buku    :[0m T03
-[1;35mHarga Satuan :[0m 110000
-[1;35mJumlah Beli  :[0m 2
-[1;35mTotal Bayar  :[0m 220000
-[1;32m========================================================[0m
+NAMA   : yoan
+JUDUL  : Holy Mother
+PENULIS: Akiyoshi Rikako
+DURASI : 4 hari
+STATUS : DIPINJAM
+----------------------------------------
+|hi Rikako
+DURASI : 4 hari
+STATUS : DIPINJAM
+----------------------------------------
+|]´|1543504221|127
