@@ -26,8 +26,10 @@ void kontrol_pembeli() {
         beli_pembeli();
         break;
         case 2:
+        pinjam_buku();
         break;
         case 3:
+        kembalikan_buku();
         break;
 
     }
