@@ -123,6 +123,7 @@ int pinjam_buku() {
 
             file = fopen("peminjaman.txt", "a");
             if (file != NULL) {
+                fprintf(file, "\n=== BUKTI PEMINJAMAN ===\n");
                 fprintf(file, "NAMA   : %s\n", pem.nama);
                 fprintf(file, "JUDUL  : %s\n", pem.judul);
                 fprintf(file, "PENULIS: %s\n", pem.penulis);
