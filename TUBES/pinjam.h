@@ -131,11 +131,11 @@ int pinjam_buku() {
              fprintf(file, "=====================================================\n");
              fprintf(file, "|                 BUKTI PEMINJAMAN                  |\n");
              fprintf(file, "=====================================================\n");
-             fprintf(file, "| %-15s : %-35s |\n", "Nama Peminjam", pem.nama);
-             fprintf(file, "| %-15s : %-35s |\n", "Judul Buku", pem.judul);
-             fprintf(file, "| %-15s : %-35s |\n", "Penulis", pem.penulis);
-             fprintf(file, "| %-15s : %-35d |\n", "Lama Pinjam", pem.lamaPinjam);
-             fprintf(file, "| %-15s : %-35s |\n", "Status", pem.status);
+             fprintf(file, "| %-15s : %-33s |\n", "Nama Peminjam", pem.nama);
+             fprintf(file, "| %-15s : %-33s |\n", "Judul Buku", pem.judul);
+             fprintf(file, "| %-15s : %-33s |\n", "Penulis", pem.penulis);
+             fprintf(file, "| %-15s : %-33d |\n", "Lama Pinjam", pem.lamaPinjam);
+             fprintf(file, "| %-15s : %-33s |\n", "Status", pem.status);
              fprintf(file, "=====================================================\n\n");
 
              fclose(file); }
