@@ -332,12 +332,12 @@ void cetakStruk(char namaPembeli[], char noTransaksi[], float totalBayar, float 
     printf("Tanggal       : %02d/%02d/%04d\n", tm.tm_mday, tm.tm_mon + 1, tm.tm_year + 1900);
     printf("Nama Pembeli  : %s\n", namaPembeli);
     printf("================================================================================\n");
-    printf("| %-6s | %-35s | %-4s | %-10s | %-12s |\n", 
+    printf("| %-6s | %-50s | %-4s | %-10s | %-12s |\n", 
            "KODE", "JUDUL", "QTY", "HARGA", "SUBTOTAL");
     printf("================================================================================\n");
     
     for (i = 0; i < jumlahItem; i++) {
-        printf("| %-6s | %-35s | %-4d | Rp%-8.0f | Rp%-10.0f |\n",
+        printf("| %-6s | %-50s | %-4d | Rp%-8.0f | Rp%-10.0f |\n",
                keranjang[i].kode_buku,
                keranjang[i].judul,
                keranjang[i].jumlah,
@@ -462,7 +462,7 @@ void transaksi() {
 }
 
 /* Main program */
-int main() {
+int pembelian_buku() {
     int pilihanMenu, pilihanLanjut;
     
     initDataBuku();
