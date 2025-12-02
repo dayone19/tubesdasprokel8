@@ -1,3 +1,6 @@
+#ifndef KEMBALI_H
+#define KEMBALI_H
+
 #include <stdio.h>
 #include <string.h>
 #include "warna.h"
@@ -125,3 +128,4 @@ int kembalikan_buku() {
 
     return 0;
 }
+#endif
