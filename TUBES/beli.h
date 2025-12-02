@@ -1,8 +1,8 @@
 #ifndef BELI_H
 #define BELI_H
 
-
 #include <stdio.h>
+#include "warna.h"
 
 int huruf4;
 int genre;
@@ -273,13 +273,13 @@ void proses_pembelian() {
 }
 
 void struk(FILE *file, char nama[], char kode[], int harga, int jumlah, int total) {
-    fprintf(file,"\n%s===================%s STRUK PEMBELIAN %s===================%s\n", hijau, pink, hijau, putih);
-    fprintf(file,"%sNama Pembeli :%s %s\n", pink, putih,nama);
-    fprintf(file,"%sKode Buku    :%s %s\n", pink, putih,kode);
-    fprintf(file,"%sHarga Satuan :%s %d\n", pink, putih,harga);
-    fprintf(file,"%sJumlah Beli  :%s %d\n", pink, putih,jumlah);
-    fprintf(file,"%sTotal Bayar  :%s %d\n", pink, putih,total);
-    fprintf(file,"%s========================================================%s\n", hijau, putih);
+    fprintf(file,"\n=================== STRUK PEMBELIAN ===================\n" );
+    fprintf(file,"Nama Pembeli : %s\n",nama);
+    fprintf(file,"Kode Buku    : %s\n",kode);
+    fprintf(file,"Harga Satuan : %d\n",harga);
+    fprintf(file,"Jumlah Beli  : %d\n",jumlah);
+    fprintf(file,"Total Bayar  : %d\n",total);
+    fprintf(file,"========================================================\n");
 }
 void beli_pembeli() {
   FILE *file = fopen("speminjaman.txt", "a");

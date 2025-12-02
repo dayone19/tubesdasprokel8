@@ -1,0 +1,51 @@
+
+=====================================================
+|                 BUKTI PEMINJAMAN                  |
+=====================================================
+| Nama Peminjam   : YOAN                              |
+| Judul Buku      : Holy Mother                       |
+| Penulis         : Akiyoshi Rikako                   |
+| Lama Pinjam     : 2                                 |
+| Status          : DIPINJAM                          |
+=====================================================
+
+=====================================================
+|                 BUKTI PEMINJAMAN                  |
+=====================================================
+| Nama Peminjam   : YOAN                           |
+| Judul Buku      : Holy Mother                    |
+| Penulis         : Akiyoshi Rikako                |
+| Lama Pinjam     : 2                              |
+| Status          : DIPINJAM                       |
+=====================================================
+
+=====================================================
+|                 BUKTI PEMINJAMAN                  |
+=====================================================
+| Nama Peminjam   : YOAN                            |
+| Judul Buku      : Holy Mother                     |
+| Penulis         : Akiyoshi Rikako                 |
+| Lama Pinjam     : 2                               |
+| Status          : DIPINJAM                        |
+=====================================================
+
+=====================================================
+|                 BUKTI PEMINJAMAN                  |
+=====================================================
+| Nama Peminjam   : YOAN                            |
+| Judul Buku      : Holy Mother                     |
+| Penulis         : Akiyoshi Rikako                 |
+| Lama Pinjam     : 2                               |
+| Status          : DIPINJAM                        |
+=====================================================
+
+=====================================================
+|                 BUKTI PEMINJAMAN                  |
+=====================================================
+| Nama Peminjam   : YOAN                            |
+| Judul Buku      : Holy Mother                     |
+| Penulis         : Akiyoshi Rikako                 |
+| Lama Pinjam     : 2                               |
+| Status          : DIPINJAM                        |
+=====================================================
+

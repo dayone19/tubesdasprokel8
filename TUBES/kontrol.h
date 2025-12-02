@@ -1,5 +1,11 @@
 #include <stdio.h>
 #include "beli.h"
+#include "pinjam.h"
+#include "laporan.h"
+#include "login.h"
+#include "warna.h"
+#include "pembukaan.h"
+
 
 int pilih_pembeli;
 int huruf2;
@@ -20,8 +26,10 @@ void kontrol_pembeli() {
         beli_pembeli();
         break;
         case 2:
+        pinjam_buku();
         break;
         case 3:
+        kembalikan_buku();
         break;
 
     }
@@ -46,8 +54,10 @@ void kontrol_karyawan() {
         laporan_penjualan();
         break;
         case 2:
+        pinjam_buku();
         break;
         case 3:
+        kembalikan_buku();
         break;
 
     }
