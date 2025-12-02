@@ -145,11 +145,11 @@ int pinjam_buku() {
             printf("%s|                 BUKTI PEMINJAMAN                  |%s\n", hijau, putih);
             printf("%s=====================================================%s\n", hijau, putih);
 
-            printf("| %-15s : %-35s |\n", "Nama Peminjam", pem.nama);
-            printf("| %-15s : %-35s |\n", "Judul Buku", pem.judul);
-            printf("| %-15s : %-35s |\n", "Penulis", pem.penulis);
-            printf("| %-15s : %-35d |\n", "Lama Pinjam", pem.lamaPinjam);
-            printf("| %-15s : %-35s |\n", "Status", pem.status);
+            printf("| %-15s : %-33s |\n", "Nama Peminjam", pem.nama);
+            printf("| %-15s : %-33s |\n", "Judul Buku", pem.judul);
+            printf("| %-15s : %-33s |\n", "Penulis", pem.penulis);
+            printf("| %-15s : %-33d |\n", "Lama Pinjam", pem.lamaPinjam);
+            printf("| %-15s : %-33s |\n", "Status", pem.status);
 
             printf("=======================================================\n");
 
