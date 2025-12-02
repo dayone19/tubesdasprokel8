@@ -151,7 +151,7 @@ int pinjam_buku() {
             printf("| %-15s : %-35d |\n", "Lama Pinjam", pem.lamaPinjam);
             printf("| %-15s : %-35s |\n", "Status", pem.status);
 
-            printf("=====================================================\n");
+            printf("=======================================================\n");
 
             break;
         }
