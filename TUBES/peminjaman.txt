@@ -1,11 +1,51 @@
-NAMA   : yoan
-JUDUL  : Holy Mother
-PENULIS: Akiyoshi Rikako
-DURASI : 4 hari
-STATUS : DIPINJAM
-----------------------------------------
-|hi Rikako
-DURASI : 4 hari
-STATUS : DIPINJAM
-----------------------------------------
-|]´|1543504221|127
+
+=====================================================
+|                 BUKTI PEMINJAMAN                  |
+=====================================================
+| Nama Peminjam   : YOAN                              |
+| Judul Buku      : Holy Mother                       |
+| Penulis         : Akiyoshi Rikako                   |
+| Lama Pinjam     : 2                                 |
+| Status          : DIPINJAM                          |
+=====================================================
+
+=====================================================
+|                 BUKTI PEMINJAMAN                  |
+=====================================================
+| Nama Peminjam   : YOAN                           |
+| Judul Buku      : Holy Mother                    |
+| Penulis         : Akiyoshi Rikako                |
+| Lama Pinjam     : 2                              |
+| Status          : DIPINJAM                       |
+=====================================================
+
+=====================================================
+|                 BUKTI PEMINJAMAN                  |
+=====================================================
+| Nama Peminjam   : YOAN                            |
+| Judul Buku      : Holy Mother                     |
+| Penulis         : Akiyoshi Rikako                 |
+| Lama Pinjam     : 2                               |
+| Status          : DIPINJAM                        |
+=====================================================
+
+=====================================================
+|                 BUKTI PEMINJAMAN                  |
+=====================================================
+| Nama Peminjam   : YOAN                            |
+| Judul Buku      : Holy Mother                     |
+| Penulis         : Akiyoshi Rikako                 |
+| Lama Pinjam     : 2                               |
+| Status          : DIPINJAM                        |
+=====================================================
+
+=====================================================
+|                 BUKTI PEMINJAMAN                  |
+=====================================================
+| Nama Peminjam   : YOAN                            |
+| Judul Buku      : Holy Mother                     |
+| Penulis         : Akiyoshi Rikako                 |
+| Lama Pinjam     : 2                               |
+| Status          : DIPINJAM                        |
+=====================================================
+
