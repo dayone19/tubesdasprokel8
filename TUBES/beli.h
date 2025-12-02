@@ -212,7 +212,7 @@ void transaksi() {
 }
 
 /* Menu Beli */
-void menuBeli() {
+void beli_pembeli() {
     initDataBuku();
 
     int p;
@@ -228,7 +228,7 @@ void menuBeli() {
             tampilkanTabelBuku("");
             printf("Tekan Enter untuk kembali...");
             getchar(); getchar();
-            menuBeli();
+            beli_pembeli();
             break;
         case 2:
             prosesPembelian();
@@ -238,7 +238,7 @@ void menuBeli() {
             return;
         default:
             printf("Pilihan tidak valid.\n");
-            menuBeli();
+            beli_pembeli();
     }
 }
 

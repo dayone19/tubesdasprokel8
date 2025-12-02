@@ -42,6 +42,19 @@ void printGenreLine(const char *genre) {
     printf("%s---------------------------------------------------------------------------------------------------------------%s\n", merah, putih);
 }
 
+// Tambahan: fungsi cetak struk di terminal
+void cetakStrukPeminjaman(peminjaman pem) {
+    printf("%s=====================================================%s\n", hijau, putih);
+    printf("%s|                 BUKTI PEMINJAMAN                  |%s\n", hijau, putih);
+    printf("%s=====================================================%s\n", hijau, putih);
+    printf("| %-15s : %-31s |\n", "Nama Peminjam", pem.nama);
+    printf("| %-15s : %-31s |\n", "Judul Buku", pem.judul);
+    printf("| %-15s : %-31s |\n", "Penulis", pem.penulis);
+    printf("| %-15s : %-31d |\n", "Lama Pinjam", pem.lamaPinjam);
+    printf("| %-15s : %-31s |\n", "Status", pem.status);
+    printf("=====================================================\n");
+}
+
 int pinjam_buku() {
 
     buku buku[] = {
@@ -118,7 +131,7 @@ int pinjam_buku() {
 
             buku[i].stok--;
 
-            // Simpan data "mesin-friendly"
+            // Simpan data ke file tetap ada
             FILE *fmesin = fopen("peminjaman.txt", "a");
             if(fmesin != NULL){
                 fprintf(fmesin, "%s|%s|%s|%d|%s\n",
@@ -127,33 +140,8 @@ int pinjam_buku() {
                 fclose(fmesin);
             }
 
-            // Simpan bukti dekoratif
-            FILE *fbukti = fopen("bukti_peminjaman.txt", "a");
-            if(fbukti != NULL){
-                fprintf(fbukti, "=====================================================\n");
-                fprintf(fbukti, "|                 BUKTI PEMINJAMAN                  |\n");
-                fprintf(fbukti, "=====================================================\n");
-                fprintf(fbukti, "| %-15s : %-31s |\n", "Nama Peminjam", pem.nama);
-                fprintf(fbukti, "| %-15s : %-31s |\n", "Judul Buku", pem.judul);
-                fprintf(fbukti, "| %-15s : %-31s |\n", "Penulis", pem.penulis);
-                fprintf(fbukti, "| %-15s : %-31d |\n", "Lama Pinjam", pem.lamaPinjam);
-                fprintf(fbukti, "| %-15s : %-31s |\n", "Status", pem.status);
-                fprintf(fbukti, "=====================================================\n\n");
-                fclose(fbukti);
-            }
-
-            // Tampilkan di layar (format sama seperti file bukti)
-            printf("%s=====================================================%s\n", hijau, putih);
-            printf("%s|                 BUKTI PEMINJAMAN                  |%s\n", hijau, putih);
-            printf("%s=====================================================%s\n", hijau, putih);
-
-            printf("| %-15s : %-31s |\n", "Nama Peminjam", pem.nama);
-            printf("| %-15s : %-31s |\n", "Judul Buku", pem.judul);
-            printf("| %-15s : %-31s |\n", "Penulis", pem.penulis);
-            printf("| %-15s : %-31d |\n", "Lama Pinjam", pem.lamaPinjam);
-            printf("| %-15s : %-31s |\n", "Status", pem.status);
-
-            printf("=====================================================");
+            // Tambahan: cetak struk di terminal
+            cetakStrukPeminjaman(pem);
 
             break;
         }

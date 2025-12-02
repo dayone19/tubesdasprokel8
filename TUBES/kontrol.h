@@ -54,10 +54,10 @@ void kontrol_karyawan() {
         laporan_penjualan();
         break;
         case 2:
-        pinjam_buku();
+        buku_paling_diminati();
         break;
         case 3:
-        kembalikan_buku();
+        catatan_pendapatan();
         break;
 
     }

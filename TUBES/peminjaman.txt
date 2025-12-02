@@ -1,6 +1,2 @@
-rr|Holy Mother|Akiyoshi Rikako|2|KEMBALI
-moris|Pasien|Naomi Midori|3|KEMBALI
-r|Pasien|Naomi Midori|3|KEMBALI
-r|Pasien|Naomi Midori|3|KEMBALI
-roy|IT|Stephen King|2|KEMBALI
-cia|IT|Stephen King|1|KEMBALI
+deyoan salsabila|Holy Mother|Akiyoshi Rikako|2|KEMBALI
+deyoan|Holy Mother|Akiyoshi Rikako|2|KEMBALI

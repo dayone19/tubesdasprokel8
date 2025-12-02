@@ -7,7 +7,6 @@
 #include "pinjam.h"
 
 int kembalikan_buku() {
-
     FILE *f = fopen("peminjaman.txt","r");
     if (!f) {
         printf("%sFile peminjaman.txt tidak ditemukan!%s\n", merah, putih);
@@ -35,15 +34,17 @@ int kembalikan_buku() {
         if(strcmp(data.nama, namaInput) == 0 && strcmp(data.status, "DIPINJAM") == 0) {
             found = 1;
 
-            printf("%s=== DATA DITEMUKAN ===%s\n", hijau, putih);
-            printf("Nama Peminjam : %s\n", data.nama);
-            printf("Judul Buku    : %s\n", data.judul);
-            printf("Penulis       : %s\n", data.penulis);
-            printf("Lama Pinjam   : %d hari\n", data.lamaPinjam);
+            printf("%s=====================================================%s\n", hijau, putih);
+            printf("%s|                 STRUK PENGEMBALIAN                |%s\n", hijau, putih);
+            printf("%s=====================================================%s\n", hijau, putih);
+            printf("| %-15s : %-31s |\n", "Nama Peminjam", data.nama);
+            printf("| %-15s : %-31s |\n", "Judul Buku", data.judul);
+            printf("| %-15s : %-31s |\n", "Penulis", data.penulis);
+            printf("| %-15s : %-31d |\n", "Lama Pinjam", data.lamaPinjam);
+            printf("| %-15s : %-31s |\n", "Status", "KEMBALI");
+            printf("=====================================================\n");
 
-            printf("\n%sBuku dikembalikan%s\n", hijau, putih);
             fprintf(temp,"%s|%s|%s|%d|%s\n", data.nama, data.judul, data.penulis, data.lamaPinjam, "KEMBALI");
-
         } else {
             fprintf(temp,"%s|%s|%s|%d|%s\n", data.nama, data.judul, data.penulis, data.lamaPinjam, data.status);
         }
