@@ -1,11 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
-const char *pink  = "\033[1;35m";
-const char *putih = "\033[0m";
-const char *hijau = "\033[1;32m";
-const char *kuning= "\033[1;33m";
-
+#include "warna.h"
 typedef struct {
     char kode[10];
     char genre[30];

@@ -2,6 +2,7 @@
 #define BELI_H
 
 #include <stdio.h>
+#include "warna.h"
 
 int huruf4;
 int genre;
