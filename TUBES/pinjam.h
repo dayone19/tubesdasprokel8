@@ -30,16 +30,16 @@ void printHeaderJudul() {
 }
 
 void printHeaderTabel() {
-    printf("%s---------------------------------------------------------------------------------------------------------------%s\n", kuning, putih);
+    printf("%s---------------------------------------------------------------------------------------------------------------%s\n", pink, putih);
     printf("%s| KODE  |      GENRE       |             JUDUL BUKU             |          PENULIS          |   STOK   |%s\n",
-           kuning, putih);
-    printf("%s---------------------------------------------------------------------------------------------------------------%s\n", kuning, putih);
+           pink, putih);
+    printf("%s---------------------------------------------------------------------------------------------------------------%s\n", pink, putih);
 }
 
 void printGenreLine(const char *genre) {
-    printf("%s---------------------------------------------------------------------------------------------------------------%s\n", hijau, putih);
-    printf("%s>>> %s%s\n", hijau, genre, putih);
-    printf("%s---------------------------------------------------------------------------------------------------------------%s\n", hijau, putih);
+    printf("%s---------------------------------------------------------------------------------------------------------------%s\n", merah, putih);
+    printf("%s>>> %s%s\n", merah, genre, putih);
+    printf("%s---------------------------------------------------------------------------------------------------------------%s\n", merah, putih);
 }
 
 int pinjam_buku() {
@@ -102,7 +102,7 @@ int pinjam_buku() {
         );
     }
 
-    printf("%s---------------------------------------------------------------------------------------------------------------%s\n", kuning, putih);
+    printf("%s---------------------------------------------------------------------------------------------------------------%s\n", merah, putih);
 
     printf("\nMasukkan kode buku: ");
     scanf("%s", kodeInput);
@@ -127,22 +127,32 @@ int pinjam_buku() {
 
             file = fopen("peminjaman.txt", "a");
             if (file != NULL) {
-                fprintf(file, "\n=== BUKTI PEMINJAMAN ===\n");
-                fprintf(file, "NAMA   : %s\n", pem.nama);
-                fprintf(file, "JUDUL  : %s\n", pem.judul);
-                fprintf(file, "PENULIS: %s\n", pem.penulis);
-                fprintf(file, "DURASI : %d hari\n", pem.lamaPinjam);
-                fprintf(file, "STATUS : %s\n", pem.status);
-                fprintf(file, "----------------------------------------\n");
-                fclose(file);
-            }
 
-            printf("\n%s=== BUKTI PEMINJAMAN ===%s\n", hijau, putih);
-            printf("Nama Peminjam : %s\n", pem.nama);
-            printf("Judul Buku    : %s\n", pem.judul);
-            printf("Penulis       : %s\n", pem.penulis);
-            printf("Lama Pinjam   : %d hari\n", pem.lamaPinjam);
-            printf("Status        : %s\n", pem.status);
+             fprintf(file, "=====================================================\n");
+             fprintf(file, "|                 BUKTI PEMINJAMAN                  |\n");
+             fprintf(file, "=====================================================\n");
+             fprintf(file, "| %-15s : %-35s |\n", "Nama Peminjam", pem.nama);
+             fprintf(file, "| %-15s : %-35s |\n", "Judul Buku", pem.judul);
+             fprintf(file, "| %-15s : %-35s |\n", "Penulis", pem.penulis);
+             fprintf(file, "| %-15s : %-35d |\n", "Lama Pinjam", pem.lamaPinjam);
+             fprintf(file, "| %-15s : %-35s |\n", "Status", pem.status);
+             fprintf(file, "=====================================================\n\n");
+
+             fclose(file); }
+
+
+            printf("%s=====================================================%s\n", hijau, putih);
+            printf("%s|                 BUKTI PEMINJAMAN                  |%s\n", hijau, putih);
+            printf("%s=====================================================%s\n", hijau, putih);
+
+            printf("| %-15s : %-33s |\n", "Nama Peminjam", pem.nama);
+            printf("| %-15s : %-33s |\n", "Judul Buku", pem.judul);
+            printf("| %-15s : %-33s |\n", "Penulis", pem.penulis);
+            printf("| %-15s : %-33d |\n", "Lama Pinjam", pem.lamaPinjam);
+            printf("| %-15s : %-33s |\n", "Status", pem.status);
+
+            printf("=======================================================\n");
+
             break;
         }
     }
