@@ -183,7 +183,6 @@ void cetakStruk(char namaPembeli[], char noTransaksi[], float totalBayar, float 
     
     printf("\n========================================================================================\n");
     printf("                             STRUK PEMBELIAN BUKU\n");
-    printf("                               TOKO BUKU CERIA\n");
     printf("========================================================================================\n");
     printf("No. Transaksi : %s\n", noTransaksi);
     printf("Nama Pembeli  : %s\n", namaPembeli);
@@ -203,7 +202,7 @@ void cetakStruk(char namaPembeli[], char noTransaksi[], float totalBayar, float 
     printf("Uang Dibayar  : Rp%.0f\n", uangDibayar);
     printf("Kembalian     : Rp%.0f\n", kembalian);
     printf("========================================================================================\n");
-    printf("            Terima kasih sudah berbelanja di Toko Buku Ceria!\n");
+    printf("            Terima kasih sudah berbelanja di Toko Buku kami!\n");
     printf("========================================================================================\n");
     
     /* Simpan ke file */
@@ -290,9 +289,6 @@ void menuBeli() {
     
     initDataBuku();
     
-    printf("\n========================================================================================\n");
-    printf("                        SELAMAT DATANG DI TOKO BUKU CERIA\n");
-    printf("========================================================================================\n");
     printf("\n=== MENU PEMBELIAN ===\n");
     printf("1. Lihat Semua Buku\n");
     printf("2. Pilih Genre dan Beli Buku\n");
