@@ -66,9 +66,8 @@ void laporan_peminjaman() {
 }
 
 void laporan_gabungan() {
-    printf("\n===== LAPORAN PEMBELIAN =====\n");
+    printf("\n===== LAPORAN PENJUALAN =====\n");
     laporan_penjualan();
-    printf("\n===== LAPORAN PEMINJAMAN =====\n");
     laporan_peminjaman();
 }
 
