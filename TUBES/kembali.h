@@ -44,47 +44,54 @@ int kembalikan_buku() {
 
     int jumlahBuku = sizeof(buku)/sizeof(buku[0]);
 
-    FILE *f = fopen("peminjaman.txt","r");
+    FILE *f = fopen("peminjaman.txt", "r");
     if (!f) {
         printf("%sFile peminjaman.txt tidak ditemukan!%s\n", merah, putih);
         return 0;
     }
 
-    FILE *temp = fopen("temp.txt","w");
+    FILE *temp = fopen("temp.txt", "w");
 
-    Peminjaman data;
     char namaInput[50];
-    int hariKembali;
-    int found = 0;
-
     printf("%sMasukkan nama peminjam : %s", pink, putih);
     scanf(" %[^\n]", namaInput);
 
-    while (fscanf(f,"%[^|]|%[^|]|%[^|]|%d|%d\n",
-                  data.nama, data.judul, data.penulis,
-                  &data.hariPinjam, &data.dendaTersimpan) != EOF)
-    {
-        if (strcmp(data.nama, namaInput)==0) {
+    char nama[50], judul[100], penulis[50], status[20];
+    int durasi;
+
+    int found = 0;
+
+    while (1) {
+
+        if (fscanf(f, "NAMA   : %[^\n]\n", nama) != 1) break;
+        fscanf(f, "JUDUL  : %[^\n]\n", judul);
+        fscanf(f, "PENULIS: %[^\n]\n", penulis);
+        fscanf(f, "DURASI : %d hari\n", &durasi);
+        fscanf(f, "STATUS : %[^\n]\n", status);
+        fscanf(f, "----------------------------------------\n");
+
+        if (strcmp(nama, namaInput) == 0) {
             found = 1;
 
             printf("\n%s=== DATA DITEMUKAN ===%s\n", hijau, putih);
-            printf("Nama Peminjam : %s\n", data.nama);
-            printf("Judul Buku    : %s\n", data.judul);
-            printf("Penulis       : %s\n", data.penulis);
-            printf("Lama Pinjam   : %d hari\n", data.hariPinjam);
+            printf("Nama Peminjam : %s\n", nama);
+            printf("Judul Buku    : %s\n", judul);
+            printf("Penulis       : %s\n", penulis);
+            printf("Lama Pinjam   : %d hari\n", durasi);
 
             printf("\n%sTotal hari sampai pengembalian : %s", kuning, putih);
+
+            int hariKembali;
             scanf("%d", &hariKembali);
 
-            int selisih = hariKembali - data.hariPinjam;
+            int selisih = hariKembali - durasi;
             if (selisih < 0) selisih += 30;
 
             int denda = selisih * 10000;
 
             printf("\n%s=== BUKTI PENGEMBALIAN ===%s\n", hijau, putih);
-            printf("Nama Peminjam : %s\n", data.nama);
-            printf("Judul Buku    : %s\n", data.judul);
-            printf("Penulis       : %s\n", data.penulis);
+            printf("Nama Peminjam : %s\n", nama);
+            printf("Judul Buku    : %s\n", judul);
             printf("Total Hari    : %d hari\n", hariKembali);
 
             if (selisih > 0) {
@@ -95,19 +102,24 @@ int kembalikan_buku() {
                 printf("%sDenda         : Rp 0%s\n", hijau, putih);
             }
 
-            for (int i=0; i<jumlahBuku; i++) {
-                if (strcmp(buku[i].judul, data.judul)==0) {
+            for (int i = 0; i < jumlahBuku; i++) {
+                if (strcmp(buku[i].judul, judul) == 0) {
                     buku[i].stok++;
-                    printf("\nStok Buku '%s' sekarang: %d\n",
-                           buku[i].judul, buku[i].stok);
+                    printf("\nStok Buku '%s' sekarang: %d\n", buku[i].judul, buku[i].stok);
                     break;
                 }
             }
 
         } else {
-            fprintf(temp,"%s|%s|%s|%d|%d\n",
-                    data.nama, data.judul, data.penulis,
-                    data.hariPinjam, data.dendaTersimpan);
+            fprintf(temp,
+                "NAMA   : %s\n"
+                "JUDUL  : %s\n"
+                "PENULIS: %s\n"
+                "DURASI : %d hari\n"
+                "STATUS : %s\n"
+                "----------------------------------------\n",
+                nama, judul, penulis, durasi, status
+            );
         }
     }
 
@@ -115,12 +127,12 @@ int kembalikan_buku() {
     fclose(temp);
 
     remove("peminjaman.txt");
-    rename("temp.txt","peminjaman.txt");
+    rename("temp.txt", "peminjaman.txt");
 
     if (!found) {
         printf("%s\nNama tidak ditemukan data peminjam!%s\n", merah, putih);
     } else {
-        printf("\n%sDATA BERHASIL DIHAPUS DARI PEMINJAMAN DAN STOK DIUPDATE%s\n", hijau, putih);
+        printf("\n%sDATA BERHASIL DIHAPUS DAN STOK DIUPDATE%s\n", hijau, putih);
     }
 
     return 0;
