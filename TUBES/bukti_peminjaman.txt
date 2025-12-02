@@ -1,0 +1,20 @@
+=====================================================
+|                 BUKTI PEMINJAMAN                  |
+=====================================================
+| Nama Peminjam   : moris                           |
+| Judul Buku      : Pasien                          |
+| Penulis         : Naomi Midori                    |
+| Lama Pinjam     : 3                               |
+| Status          : DIPINJAM                        |
+=====================================================
+
+=====================================================
+|                 BUKTI PEMINJAMAN                  |
+=====================================================
+| Nama Peminjam   : r                               |
+| Judul Buku      : Pasien                          |
+| Penulis         : Naomi Midori                    |
+| Lama Pinjam     : 3                               |
+| Status          : DIPINJAM                        |
+=====================================================
+

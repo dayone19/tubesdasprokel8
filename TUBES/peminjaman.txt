@@ -1,1 +1,3 @@
 rr|Holy Mother|Akiyoshi Rikako|2|KEMBALI
+moris|Pasien|Naomi Midori|3|KEMBALI
+r|Pasien|Naomi Midori|3|KEMBALI
