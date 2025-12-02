@@ -7,9 +7,9 @@
 #include "pinjam.h"
 #include "warna.h"
 
-/* Laporan penjualan (dari pembelian) */
 void laporan_penjualan() {
-    if (jumlahItem == 0) {
+    FILE *f = fopen("pembelian.txt","r");
+    if (!f) {
         printf("\nBelum ada pembelian.\n");
         return;
     }
@@ -20,51 +20,56 @@ void laporan_penjualan() {
     printf("-------------------------------------------------------------"
            "-----------------\n");
 
-    for (int i = 0; i < jumlahItem; i++) {
+    char line[200];
+    int no = 1;
+    while(fgets(line,sizeof(line),f)) {
+        char kode[10], judul[40];
+        int jumlah;
+        float harga, subtotal;
+        sscanf(line,"%9[^|]|%39[^|]|%d|%f|%f", kode, judul, &jumlah, &harga, &subtotal);
         printf("| %-3d | %-6s | %-32s | %-4d | Rp%-9.0f | Rp%-11.0f |\n",
-               i + 1,
-               keranjang[i].kode_buku,
-               keranjang[i].judul,
-               keranjang[i].jumlah,
-               keranjang[i].harga_satuan,
-               keranjang[i].subtotal);
+               no++, kode, judul, jumlah, harga, subtotal);
     }
+
     printf("-------------------------------------------------------------"
            "-----------------\n");
+    fclose(f);
 }
 
-/* Buku paling diminati dari pembelian */
-void buku_paling_diminati() {
-    if (jumlahItem == 0) {
-        printf("\nBelum ada pembelian.\n");
+void laporan_peminjaman() {
+    FILE *f = fopen("peminjaman.txt","r");
+    if (!f) {
+        printf("\nBelum ada peminjaman.\n");
         return;
     }
 
-    int idx = 0;
-    for (int i = 1; i < jumlahItem; i++)
-        if (keranjang[i].jumlah > keranjang[idx].jumlah)
-            idx = i;
+    printf("%s================= LAPORAN PEMINJAMAN =================%s\n", hijau, putih);
+    printf("| %-3s | %-20s | %-30s | %-20s | %-5s | %-10s |\n",
+           "No", "Nama Peminjam", "Judul Buku", "Penulis", "Hari", "Status");
+    printf("--------------------------------------------------------------------------"
+           "------------------\n");
 
-    printf("%s========= BUKU PALING DIMINATI =========%s\n", hijau, putih);
-    printf("Kode Buku : %s\n", keranjang[idx].kode_buku);
-    printf("Judul     : %s\n", keranjang[idx].judul);
-    printf("Jumlah    : %d\n", keranjang[idx].jumlah);
-    printf("=======================================\n");
-}
-
-/* Catatan pendapatan dari pembelian */
-void catatan_pendapatan() {
-    if (jumlahItem == 0) {
-        printf("\nBelum ada pembelian.\n");
-        return;
+    char line[200];
+    int no = 1;
+    while(fgets(line,sizeof(line),f)) {
+        char nama[50], judul[100], penulis[50], status[20];
+        int lama;
+        sscanf(line,"%49[^|]|%99[^|]|%49[^|]|%d|%19[^\n]", nama, judul, penulis, &lama, status);
+        printf("| %-3d | %-20s | %-30s | %-20s | %-5d | %-10s |\n",
+               no++, nama, judul, penulis, lama, status);
     }
 
-    float total = 0;
-    for (int i = 0; i < jumlahItem; i++) total += keranjang[i].subtotal;
+    printf("--------------------------------------------------------------------------"
+           "------------------\n");
 
-    printf("%s========= CATATAN PENDAPATAN =========%s\n", hijau, putih);
-    printf("Total Pendapatan: Rp%.0f\n", total);
-    printf("======================================\n");
+    fclose(f);
+}
+
+void laporan_gabungan() {
+    printf("\n===== LAPORAN PEMBELIAN =====\n");
+    laporan_penjualan();
+    printf("\n===== LAPORAN PEMINJAMAN =====\n");
+    laporan_peminjaman();
 }
 
 #endif

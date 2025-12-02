@@ -45,8 +45,8 @@ void login_password() {
         printf("%s++++++++++++++++%s> %sSELAMAT! %sKAMU BERHASIL LOGIN%s\n", kuning, cyan, pink, hijau, putih);
         printf("%s-------------------------------%s--------------------------------\n%s",cyan,pink,putih);
         printf("*************************  - 1. Laporan Penjualan\n");
-        printf("----------------> CHOOSE   - 2. Buku Paling Diminati\n");
-        printf("*************************  - 3. Catatan Pendapatan\n");
+        printf("----------------> CHOOSE   - 2. Laporan Peminjaman\n");
+        printf("*************************  - 3. Laporan Gabungan\n");
         printf("%s-------------------------------%s--------------------------------\n%s",cyan,pink,putih);
 
 }
